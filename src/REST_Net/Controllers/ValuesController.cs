@@ -17,7 +17,9 @@ namespace REST_Net.Controllers
             DBConnect connect = new DBConnect();
             List<string>[] retlist = new List<string>[4];
             retlist = connect.Select();
-            return Json(retlist);
+
+            PythonProcess.CallPython();
+            return Json(PythonProcess.CallPython());
         }
 
         // GET api/values/5
