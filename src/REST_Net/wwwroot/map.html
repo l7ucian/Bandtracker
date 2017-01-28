@@ -1,0 +1,64 @@
+<!DOCTYPE html >
+<html lang="en"
+      ng-app="bandtracker">
+<head >
+    
+	<title >Bands</title >
+	<link href="../libs/bootstrap/dist/css/bootstrap.min.css"
+	      rel="stylesheet" >
+	<link href="main.css"
+	      rel="stylesheet" >
+</head >
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" >
+	<div class="container" >
+		<div class="navbar-header" >
+			<a class="navbar-brand"
+			   href="/" >Bands
+			</a >
+		</div >
+	</div >
+</nav >
+
+<div class="container main-content" ng-controller ='BandData'>
+
+	<div class="row">
+		<div class="col-md-8">
+			<div class="row" >
+				<div class="col-md-12" >
+					<form class="form-inline well well-sm" >
+						<span class="glyphicon glyphicon-search" ></span >
+
+						<div class="form-group" >
+							<input type="text"
+							       class="form-control"
+							       id="name"
+							       placeholder="Search band..."
+									/>
+						</div >
+
+					</form >
+				</div >
+			</div >
+
+		</div >
+ 
+		<div class="col-md-4">
+
+		</div >
+	</div >
+</div >
+    <div>
+    <p>{{bands}}</p>
+    </div>
+    <div id="map"></div>
+    <script src="../libs/angular/angular.min.js" ></script >
+    <script src="../libs/angular/node_modules/angular-resource/angular-resource.min.js" ></script >
+    <script src="main.js" ></script >
+    <script src="map_js.js" ></script >
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAi2YXgP8iehtOognaXPHbz3kHfTPCuddI&callback=initMap"
+    async defer></script>
+
+</body >
+</html >

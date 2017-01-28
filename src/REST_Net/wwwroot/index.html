@@ -1,0 +1,90 @@
+<!DOCTYPE html >
+<html lang="en"
+      ng-app="bandtracker" >
+<head >
+    
+     <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    
+	<title >Bands</title >
+	<link href="../libs/bootstrap/dist/css/bootstrap.min.css"
+	      rel="stylesheet" >
+	<link href="main.css"
+	      rel="stylesheet" >
+</head >
+
+<body >
+<nav class="navbar navbar-inverse navbar-fixed-top" >
+	<div class="container" >
+		<div class="navbar-header" >
+			<a class="navbar-brand"
+			   href="/" >Bands
+			</a >
+		</div >
+	</div >
+</nav >
+
+<div class="container main-content"  ng-controller="BandData">
+    <!--
+   <p>{{locations}}</p> 
+-->
+	<div class="row">
+		<div class="col-md-8">
+			<div class="row" >
+				<div class="col-md-12" >
+                    <form ng-submit="find()" class="form-inline well well-sm">
+                        <span class="glyphicon glyphicon-search"></span>
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Search band..."/>
+                        <input type="submit" id="submit" value="Submit" />
+                    </form>
+				</div >
+			</div >
+
+		</div >
+        
+        		<div class="col-md-8" >
+
+			<table class="table table-bordered" >
+				<tr ng-repeat="location in locations">
+					<td >{{location.name}}</td >
+					<td >{{location.place.name}}</td >
+					<td >{{location.start_time | date:"longDate"}}</td >
+				</tr >
+
+			</table >
+
+		</div >
+
+		<div class="col-md-4"  ng-controller="BandsController">
+
+			<div class="panel panel-default" >
+				<div class="panel-heading" >Details</div >
+				<div class="panel-body" >
+
+<!-- I don't know what kind of information should I put here yet -->
+
+				</div >
+			</div >
+		</div >
+	</div >
+</div >
+
+
+<script src="/libs/angular/angular.min.js" ></script >
+<script src="/libs/angular/node_modules/angular-resource/angular-resource.min.js" ></script >
+<script src="main.js" ></script >
+</body >
+</html >
