@@ -51,7 +51,7 @@ namespace REST_Net
             app.UseApplicationInsightsExceptionTelemetry();
 
             app.UseMvc();
-            app.UseStaticFiles();
+            app.UseFileServer();
         }
     }
 }

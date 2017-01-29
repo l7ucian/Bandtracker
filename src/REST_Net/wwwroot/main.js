@@ -6,8 +6,9 @@ app.config(function($httpProvider, $resourceProvider){
 
 app.controller('BandData', function ($scope, $http) {
     $scope.find = function () {
-        $http.get('http://localhost:23244/api/values').
-            success(function (response) {
+        console.log(this.search_item);
+        var item_no_space = this.search_item.split(' ').join('')
+        $http.get('http://localhost:23244/api/values/' + item_no_space).success(function (response) {
                 json = JSON.parse(response);
                 $scope.locations = json.data;
                 if (typeof $scope.locations == 'object')

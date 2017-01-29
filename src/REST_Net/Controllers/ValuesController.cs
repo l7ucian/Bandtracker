@@ -12,22 +12,19 @@ namespace REST_Net.Controllers
     {
         // GET api/values
         [HttpGet]
-        public JsonResult Get()
+        public String Get()
         {
-            DBConnect connect = new DBConnect();
-            List<string>[] retlist = new List<string>[4];
-            retlist = connect.Select();
+            return "Heya there";
+        } 
 
-            PythonProcess.CallPython();
-            return Json(PythonProcess.CallPython());
+        // GET api/values/metallica
+        [HttpGet("{search_item}")]
+        public JsonResult Get(string search_item)
+        {
+            System.Diagnostics.Debug.WriteLine(search_item);
+            return Json(PythonProcess.CallPython(search_item));
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
 
         // POST api/values
         [HttpPost]
